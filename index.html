@@ -25,8 +25,8 @@
       transition: background-image 0.8s ease-in-out;
     
       display: flex;
-      flex-direction: column;   /* ВАЖНО */
-      align-items: center;      /* Центр по горизонтали */
+      flex-direction: column;
+      align-items: center;
     }
 
     /* Полупрозрачный основной контейнер */
@@ -34,7 +34,7 @@
       width: 90%;
       max-width: 1100px;
     
-      background: rgba(255, 255, 255, 0.75); /* чуть плотнее */
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(12px);
     
       border-radius: 20px;
@@ -42,8 +42,7 @@
     
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     
-      margin-top: 80px;   /* отступ сверху */
-      margin-bottom: 60px; /* чтобы был воздух перед футером */
+      margin-top: 80px;
     }
 
     /* Навбар */
@@ -73,10 +72,9 @@
     }
 
     /* Главный текст */
-    .hero {
+    ..hero {
       text-align: center;
-      min-height: 300px;   /* делаем выше */
-      margin-bottom: 200px; /* создаём скролл */
+      min-height: 250px;
     }
 
     .hero h1 {
@@ -138,6 +136,28 @@
     .secret-heart:active {
       transform: scale(0.95);
     }
+
+    .scroll-space {
+      height: 300px; /* регулируй сколько хочешь */
+      width: 100%;
+    }
+    
+    footer {
+      width: 100%;
+      background: rgba(100, 100, 100, 0.4); /* серый полупрозрачный */
+      backdrop-filter: blur(10px);
+    
+      padding: 30px 20px;
+      text-align: center;
+    
+      color: white;
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    
   </style>
 </head>
 <body>
@@ -158,6 +178,8 @@
       <div class="typing-text" id="typing"></div>
     </div>
   </div>
+
+  <div class="scroll-space"></div>
 
   <footer>
     <div class="footer-content">
