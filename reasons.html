@@ -138,10 +138,40 @@
         gap: 15px;
       }
     }
+    .navbar {
+      width: 100%;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: 600;
+      color: #e91e63;
+    }
+    
+    .navbar .nav-links a {
+      text-decoration: none;
+      margin-left: 25px;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    
+    .navbar .nav-links a:hover {
+      color: #e91e63;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
     <nav>
       <div class="logo">❤️ Для моей любимой</div>
       <div class="nav-links">
@@ -149,10 +179,8 @@
         <a href="reasons.html">100 причин</a>
         <a href="messages.html">Поздравления</a>
         <a href="gallery.html">Фотоальбом</a>
-        <a href="secret.html">Секрет</a>
       </div>
     </nav>
-  </div>
 
   <div class="container">
     <h1>100 причин, почему я тебя люблю 💖</h1>
