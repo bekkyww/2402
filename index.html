@@ -97,10 +97,50 @@
         gap: 15px;
       }
     }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .footer-content p {
+      margin: 8px 0;
+      color: #444;
+      font-size: 15px;
+    }
+    
+    .signature {
+      opacity: 0.7;
+    }
+    
+    .secret-heart {
+      font-size: 24px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .secret-heart:hover {
+      transform: scale(1.2);
+    }
+    
+    .secret-heart:active {
+      transform: scale(0.95);
+    }
   </style>
 </head>
 <body>
-
+  <footer>
+    <div class="footer-content">
+      <p id="together"></p>
+      <p class="signature">
+        Этот сайт — лишь малая часть того, что я чувствую к тебе 💖
+      </p>
+      <div class="secret-heart" onclick="secretClick()">❤️</div>
+    </div>
+  </footer>
   <div class="container">
     <nav>
       <div class="logo">❤️ Для моей любимой</div>
@@ -147,6 +187,32 @@
     }
 
     typeWriter();
+
+        // ===== СЧЁТЧИК ДНЕЙ =====
+    const startDate = new Date(2025, 8, 13); // ← поменяй на вашу дату
+    const today = new Date();
+    
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    document.getElementById("together").innerText =
+      "Мы вместе уже " + diffDays + " дней 💞";
+    
+    // ===== СЕКРЕТНОЕ СЕРДЕЧКО =====
+    let clickCount = 0;
+    
+    function secretClick() {
+      clickCount++;
+    
+      if (clickCount === 5) {
+        window.location.href = "secret.html";
+      }
+    
+      // если долго не кликают — сброс
+      setTimeout(() => {
+        clickCount = 0;
+      }, 3000);
+    }
   </script>
 
 </body>
