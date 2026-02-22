@@ -22,35 +22,46 @@
       align-items: center;
     }
 
-    /* Навбар */
-    .navbar {
-      width: 100%;
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(12px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar .logo { font-size: 22px; font-weight: 600; color: #e91e63; }
-    .navbar .nav-links a { text-decoration: none; margin-left: 25px; color: #333; font-weight: 500; transition: 0.3s; }
-    .navbar .nav-links a:hover { color: #e91e63; }
-
-    /* Контейнер */
-    .container {
+   .container {
       width: 90%;
       max-width: 1100px;
-      background: rgba(255,255,255,0.75);
+      background: rgba(255,255,255,0.4);
       backdrop-filter: blur(12px);
       border-radius: 20px;
       padding: 40px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-      margin-top: 80px;
-      text-align: center;
+      margin-top: 40px; /* можно увеличить, чтобы nav не прилипал к верху */
+    }
+    
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      padding: 15px 25px;
+      margin-bottom: 30px; /* расстояние до остального контента */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: 600;
+      color: #e91e63;
+    }
+    
+    .navbar .nav-links a {
+      text-decoration: none;
+      margin-left: 25px;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    
+    .navbar .nav-links a:hover {
+      color: #e91e63;
     }
 
     h1 { font-family: 'Playfair Display', serif; font-size: 36px; color: #222; margin-bottom: 40px; }
@@ -117,17 +128,16 @@
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">❤️ Для моей любимой</div>
-    <div class="nav-links">
-      <a href="index.html">Главная</a>
-      <a href="reasons.html">100 причин</a>
-      <a href="messages.html">Поздравления</a>
-      <a href="gallery.html">Фотоальбом</a>
-    </div>
-  </nav>
-
   <div class="container">
+    <nav class="navbar">
+      <div class="logo">❤️ Для моей любимой</div>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="reasons.html">100 причин</a>
+        <a href="messages.html">Поздравления</a>
+        <a href="gallery.html">Фотоальбом</a
+      </div>
+    </nav>
     <h1>Фотоальбом 🎉</h1>
     <div class="gallery">
       <!-- Просто копируй <img> с ссылкой на новую фотку -->
