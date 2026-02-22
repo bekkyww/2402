@@ -1,1 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>С Днём Рождения ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-image 0.8s ease-in-out;
+    }
+
+    /* Полупрозрачный основной контейнер */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Навбар */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      color: #e91e63;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      margin-left: 25px;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #e91e63;
+    }
+
+    /* Главный текст */
+    .hero {
+      text-align: center;
+      min-height: 150px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #222;
+      margin-bottom: 20px;
+    }
+
+    .typing-text {
+      font-size: 20px;
+      color: #444;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+      .typing-text {
+        font-size: 18px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <nav>
+      <div class="logo">❤️ Для моей любимой</div>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="reasons.html">100 причин</a>
+        <a href="messages.html">Поздравления</a>
+        <a href="gallery.html">Фотоальбом</a>
+        <a href="secret.html">Секрет</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>С Днём Рождения, Любимая 💖</h1>
+      <div class="typing-text" id="typing"></div>
+    </div>
+  </div>
+
+  <script>
+    // ===== МЕНЯЮЩИЙСЯ ФОН =====
+    const images = [
+      "images/photo1.jpg",
+      "images/photo2.jpg",
+      "images/photo3.jpg",
+      "images/photo4.jpg"
+    ];
+
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    document.body.style.backgroundImage = `url('${randomImage}')`;
+
+    // ===== ПЕЧАТАЮЩИЙСЯ ТЕКСТ =====
+    const text = "Сегодня особенный день, потому что родилась ты — человек, который изменил мою жизнь. Этот сайт — маленькое напоминание о том, как сильно я тебя люблю и как ты важна для меня.";
+    const typingElement = document.getElementById("typing");
+
+    let index = 0;
+
+    function typeWriter() {
+      if (index < text.length) {
+        typingElement.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 40);
+      }
+    }
+
+    typeWriter();
+  </script>
+
+</body>
+</html>
