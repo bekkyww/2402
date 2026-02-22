@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Фотоальбом 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 0.8s ease-in-out;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Навбар */
+    .navbar {
+      width: 100%;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar .logo { font-size: 22px; font-weight: 600; color: #e91e63; }
+    .navbar .nav-links a { text-decoration: none; margin-left: 25px; color: #333; font-weight: 500; transition: 0.3s; }
+    .navbar .nav-links a:hover { color: #e91e63; }
+
+    /* Контейнер */
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      margin-top: 80px;
+      text-align: center;
+    }
+
+    h1 { font-family: 'Playfair Display', serif; font-size: 36px; color: #222; margin-bottom: 40px; }
+
+    /* Сетка фото */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .gallery img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Модальное окно */
+    #modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    /* Footer */
+    footer {
+      width: 100%;
+      background: rgba(100,100,100,0.4);
+      backdrop-filter: blur(10px);
+      padding: 25px 20px;
+      text-align: center;
+      color: white;
+      margin-top: 60px;
+    }
+    .footer-content { max-width: 1100px; margin: 0 auto; }
+    .secret-heart { font-size: 24px; cursor: pointer; margin-top: 12px; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .secret-heart:hover { transform: scale(1.2); }
+    .scroll-space { height: 200px; width: 100%; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">❤️ Для моей любимой</div>
+    <div class="nav-links">
+      <a href="index.html">Главная</a>
+      <a href="reasons.html">100 причин</a>
+      <a href="messages.html">Поздравления</a>
+      <a href="gallery.html">Фотоальбом</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Фотоальбом 🎉</h1>
+    <div class="gallery">
+      <!-- Просто копируй <img> с ссылкой на новую фотку -->
+      <img src="images/gallery/photo1.jpg" alt="Фото 1">
+      <img src="images/gallery/photo2.jpg" alt="Фото 2">
+      <img src="images/gallery/photo3.jpg" alt="Фото 3">
+      <img src="images/gallery/photo4.jpg" alt="Фото 4">
+      <img src="images/gallery/photo5.jpg" alt="Фото 5">
+      <img src="images/gallery/photo6.jpg" alt="Фото 6">
+    </div>
+  </div>
+
+  <div id="modal">
+    <img src="" alt="Просмотр фото">
+  </div>
+
+  <div class="scroll-space"></div>
+
+  <footer>
+    <div class="footer-content">
+      <p id="together"></p>
+      <p>Этот сайт — лишь малая часть того, что я чувствую к тебе 💖</p>
+      <div class="secret-heart" onclick="secretClick()">❤️</div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== ФОН =====
+    const images = ["images/photo1.jpg","images/photo2.jpg","images/photo3.jpg","images/photo4.jpg"];
+    const randomImage = images[Math.floor(Math.random()*images.length)];
+    document.body.style.backgroundImage = `url('${randomImage}')`;
+
+    // ===== СЧЁТЧИК ДНЕЙ =====
+    const startDate = new Date(2025, 8, 13);
+    const today = new Date();
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000*60*60*24));
+    document.getElementById("together").innerText = "Мы вместе уже " + diffDays + " дней 💞";
+
+    // ===== СЕКРЕТНОЕ СЕРДЕЧКО =====
+    let clickCount = 0;
+    function secretClick() {
+      clickCount++;
+      if (clickCount === 5) window.location.href = "secret.html";
+      setTimeout(()=>{clickCount=0},3000);
+    }
+
+    // ===== Модальное окно для фото =====
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const modal = document.getElementById('modal');
+    const modalImg = modal.querySelector('img');
+
+    galleryImages.forEach(img => {
+      img.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        modalImg.src = img.src;
+      });
+    });
+
+    modal.addEventListener('click', () => {
+      modal.style.display = 'none';
+      modalImg.src = '';
+    });
+  </script>
+</body>
+</html>
