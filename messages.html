@@ -23,7 +23,11 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* Навбар */
+    nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
     .navbar {
       width: 100%;
       background: rgba(255,255,255,0.4);
@@ -37,13 +41,13 @@
       top: 0;
       z-index: 1000;
     }
-
+    
     .navbar .logo {
       font-size: 22px;
       font-weight: 600;
       color: #e91e63;
     }
-
+    
     .navbar .nav-links a {
       text-decoration: none;
       margin-left: 25px;
@@ -51,7 +55,7 @@
       font-weight: 500;
       transition: 0.3s;
     }
-
+    
     .navbar .nav-links a:hover {
       color: #e91e63;
     }
