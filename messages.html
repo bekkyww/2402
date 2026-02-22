@@ -24,40 +24,43 @@
     }
 
     nav {
-        flex-direction: column;
-        gap: 15px;
-      }
-    }
-    .navbar {
-      width: 100%;
-      background: rgba(255,255,255,0.4);
-      backdrop-filter: blur(12px);
+      width: 90%;
+      max-width: 1100px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      padding: 20px 0;
     }
-    
-    .navbar .logo {
+
+    .logo {
       font-size: 22px;
       font-weight: 600;
       color: #e91e63;
     }
     
-    .navbar .nav-links a {
+    .nav-links a {
       text-decoration: none;
       margin-left: 25px;
       color: #333;
       font-weight: 500;
       transition: 0.3s;
     }
-    
-    .navbar .nav-links a:hover {
+
+    .nav-links a:hover {
       color: #e91e63;
+    }
+
+    /* Основной контейнер */
+    .container {
+      width: 90%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+      margin-top: 80px;
+      text-align: center;
     }
 
     /* Основной контейнер */
@@ -154,19 +157,55 @@
         height: 100px;
       }
     }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+    .navbar {
+      width: 100%;
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(12px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: 600;
+      color: #e91e63;
+    }
+    
+    .navbar .nav-links a {
+      text-decoration: none;
+      margin-left: 25px;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    
+    .navbar .nav-links a:hover {
+      color: #e91e63;
+    }
   </style>
 </head>
 <body>
-
   <nav class="navbar">
-    <div class="logo">❤️ Для моей любимой</div>
-    <div class="nav-links">
-      <a href="index.html">Главная</a>
-      <a href="reasons.html">100 причин</a>
-      <a href="messages.html">Поздравления</a>
-      <a href="gallery.html">Фотоальбом</a>
-    </div>
-  </nav>
+      <div class="logo">❤️ Для моей любимой</div>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="reasons.html">100 причин</a>
+        <a href="messages.html">Поздравления</a>
+        <a href="gallery.html">Фотоальбом</a>
+      </div>
+    </nav>
 
   <div class="container">
     <h1>Поздравления от близких 💌</h1>
