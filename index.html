@@ -29,47 +29,46 @@
       align-items: center;
     }
 
-    /* Полупрозрачный основной контейнер */
-    .container {
+    
+   .container {
       width: 90%;
       max-width: 1100px;
-    
-      background: rgba(255, 255, 255, 0.4);
+      background: rgba(255,255,255,0.4);
       backdrop-filter: blur(12px);
-    
       border-radius: 20px;
       padding: 40px;
-    
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    
-      margin-top: 80px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      margin-top: 40px; /* можно увеличить, чтобы nav не прилипал к верху */
+      margin-left: 40px;
+      margin-right: 40px;
     }
-
-    /* Навбар */
-    nav {
+    
+    .navbar {
+      width: 100%;
       display: flex;
       justify-content: space-between;
-      align-items: center;
-      margin-bottom: 60px;
+      padding: 15px 25px;
+      margin-bottom: 30px; /* расстояние до остального контента */
     }
-
-    .logo {
+    
+    .navbar .logo {
       font-size: 22px;
       font-weight: 600;
       color: #e91e63;
     }
-
-    .nav-links a {
+    
+    .navbar .nav-links a {
       text-decoration: none;
       margin-left: 25px;
       color: #333;
       font-weight: 500;
       transition: 0.3s;
     }
-
-    .nav-links a:hover {
+    
+    .navbar .nav-links a:hover {
       color: #e91e63;
     }
+
 
     /* Главный текст */
     ..hero {
@@ -163,7 +162,7 @@
 </head>
 <body>
   <div class="container">
-    <nav>
+    <nav class="navbar">
       <div class="logo">❤️ Для моей любимой</div>
       <div class="nav-links">
         <a href="index.html">Главная</a>
