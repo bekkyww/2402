@@ -22,37 +22,46 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* Навбар */
-    .navbar {
-      width: 100%;
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(12px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .navbar .logo { font-size: 22px; font-weight: 600; color: #e91e63; }
-    .navbar .nav-links a { text-decoration: none; margin-left: 25px; color: #333; font-weight: 500; transition: 0.3s; }
-    .navbar .nav-links a:hover { color: #e91e63; }
-
-    /* Контейнер */
-    .container {
+    
+   .container {
       width: 90%;
-      max-width: 800px;
-      background: rgba(255,255,255,0.85);
+      max-width: 1100px;
+      background: rgba(255,255,255,0.4);
       backdrop-filter: blur(12px);
       border-radius: 20px;
       padding: 40px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-      margin-top: 80px;
-      text-align: center;
+      margin-top: 40px; /* можно увеличить, чтобы nav не прилипал к верху */
+      margin-left: 40px;
+      margin-right: 40px;
     }
+    
+    .navbar {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 25px;
+      margin-bottom: 30px; /* расстояние до остального контента */
+    }
+    
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: 600;
+      color: #e91e63;
+    }
+    
+    .navbar .nav-links a {
+      text-decoration: none;
+      margin-left: 25px;
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    
+    .navbar .nav-links a:hover {
+      color: #e91e63;
+    }
+
 
     .avatar {
       width: 120px;
@@ -111,18 +120,16 @@
   </style>
 </head>
 <body>
-
-  <nav class="navbar">
-    <div class="logo">❤️ Для моей любимой</div>
-    <div class="nav-links">
-      <a href="index.html">Главная</a>
-      <a href="reasons.html">100 причин</a>
-      <a href="messages.html">Поздравления</a>
-      <a href="gallery.html">Фотоальбом</a>
-    </div>
-  </nav>
-
   <div class="container">
+    <nav class="navbar">
+      <div class="logo">❤️ Для моей любимой</div>
+      <div class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="reasons.html">100 причин</a>
+        <a href="messages.html">Поздравления</a>
+        <a href="gallery.html">Фотоальбом</a>
+      </div>
+    </nav>
     <div class="avatar">
       <img src="images/Merey.jpg" alt="Мерей">
     </div>
