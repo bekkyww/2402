@@ -99,13 +99,23 @@
       justify-content: center;
       align-items: center;
     }
+    #modal img { max-width: 90%; max-height: 90%; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.4s; }
 
-    #modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 15px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    #modal .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 50px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 50%;
     }
+    #modal .arrow-left { left: 20px; }
+    #modal .arrow-right { right: 20px; }
+
 
     /* Footer */
     footer {
@@ -263,7 +273,9 @@
   </div>
 
   <div id="modal">
+    <span class="arrow arrow-left" onclick="showPrev()">&#10094;</span>
     <img src="" alt="Просмотр фото">
+    <span class="arrow arrow-right" onclick="showNext()">&#10095;</span>
   </div>
 
   <div class="scroll-space"></div>
@@ -313,6 +325,51 @@
       modal.style.display = 'none';
       modalImg.src = '';
     });
+    // ===== Модальное окно с переключением =====
+    const galleryImages = document.querySelectorAll('.gallery img');
+    const modal = document.getElementById('modal');
+    const modalImg = modal.querySelector('img');
+    let currentIndex = 0;
+
+    galleryImages.forEach((img, i) => {
+      img.addEventListener('click', () => {
+        currentIndex = i;
+        modal.style.display = 'flex';
+        modalImg.style.opacity = 0;
+        modalImg.src = img.src;
+        setTimeout(()=> modalImg.style.opacity = 1, 50);
+      });
+    });
+
+    function showNext() {
+      currentIndex = (currentIndex + 1) % galleryImages.length;
+      modalImg.style.opacity = 0;
+      modalImg.src = galleryImages[currentIndex].src;
+      setTimeout(()=> modalImg.style.opacity = 1, 50);
+    }
+
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+      modalImg.style.opacity = 0;
+      modalImg.src = galleryImages[currentIndex].src;
+      setTimeout(()=> modalImg.style.opacity = 1, 50);
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target.id === 'modal') {
+        modal.style.display = 'none';
+        modalImg.src = '';
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if(modal.style.display === 'flex'){
+        if(e.key === 'ArrowRight') showNext();
+        if(e.key === 'ArrowLeft') showPrev();
+        if(e.key === 'Escape') { modal.style.display = 'none'; modalImg.src = ''; }
+      }
+    });
+
   </script>
 </body>
 </html>
