@@ -63,30 +63,10 @@
 
     h1 { font-family: 'Playfair Display', serif; font-size: 36px; color: #222; margin-bottom: 40px; }
 
-    /* Сетка фото */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 20px;
-      justify-items: center;
-    }
+    / .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 15px; justify-items: center; margin-top: 30px; }
+    .gallery img { width: 120px; height: 120px; object-fit: cover; border-radius: 15px; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+    .gallery img:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(0,0,0,0.3); }
 
-    .gallery img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-
-    .gallery img:hover {
-      transform: scale(1.1);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.3);
-    }
-
-    /* Модальное окно */
     #modal {
       display: none;
       position: fixed;
@@ -271,7 +251,7 @@
       <img src="images/b100.jpg" alt="Фото 100">
     </div>
   </div>
-
+  
   <div id="modal">
     <span class="arrow arrow-left" onclick="showPrev()">&#10094;</span>
     <img src="" alt="Просмотр фото">
@@ -309,23 +289,7 @@
       setTimeout(()=>{clickCount=0},3000);
     }
 
-    // ===== Модальное окно для фото =====
-    const galleryImages = document.querySelectorAll('.gallery img');
-    const modal = document.getElementById('modal');
-    const modalImg = modal.querySelector('img');
-
-    galleryImages.forEach(img => {
-      img.addEventListener('click', () => {
-        modal.style.display = 'flex';
-        modalImg.src = img.src;
-      });
-    });
-
-    modal.addEventListener('click', () => {
-      modal.style.display = 'none';
-      modalImg.src = '';
-    });
-    // ===== Модальное окно с переключением =====
+   // ===== Модальное окно с переключением =====
     const galleryImages = document.querySelectorAll('.gallery img');
     const modal = document.getElementById('modal');
     const modalImg = modal.querySelector('img');
