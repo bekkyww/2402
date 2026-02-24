@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Секретный сейф 8 марта 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #e91e63;
+      margin-bottom: 40px;
+    }
+
+    input {
+      padding: 15px 25px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: 2px solid #e91e63;
+      outline: none;
+      margin-bottom: 20px;
+      width: 250px;
+      text-align: center;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: #e91e63;
+      color: white;
+      margin: 5px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #d81b60;
+    }
+
+    #error {
+      color: red;
+      margin-top: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Введите код 8 марта 💌</h1>
+  <input type="password" id="code-input" placeholder="Введите код">
+  <div>
+    <button onclick="checkCode()">Открыть сейф</button>
+    <button onclick="goBack()">Назад</button>
+  </div>
+  <div id="error">Неверный код, попробуй снова!</div>
+
+  <script>
+    // Здесь можно задать свой код
+    const secretCode = "123456"; 
+
+    function checkCode() {
+      const input = document.getElementById("code-input").value;
+      if(input === secretCode) {
+        // Можно заменить на открытие квеста/переход на финальный экран
+        alert("Код верный! Открываем следующий шаг квеста 💖");
+        // window.location.href = "следующая_страница.html";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+
+    function goBack() {
+      window.history.back(); // вернуться на предыдущую страницу
+      // или на главную: window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
