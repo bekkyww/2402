@@ -1,97 +1,267 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Секретный сейф 8 марта 💖</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Секретное приглашение 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      color: #e91e63;
-      margin-bottom: 40px;
-    }
+<style>
 
-    input {
-      padding: 15px 25px;
-      font-size: 18px;
-      border-radius: 10px;
-      border: 2px solid #e91e63;
-      outline: none;
-      margin-bottom: 20px;
-      width: 250px;
-      text-align: center;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Montserrat',sans-serif;
+}
 
-    button {
-      padding: 12px 25px;
-      font-size: 16px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-      background: #e91e63;
-      color: white;
-      margin: 5px;
-      transition: 0.3s;
-    }
+body{
+min-height:100vh;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
 
-    button:hover {
-      background: #d81b60;
-    }
+/* контейнер */
 
-    #error {
-      color: red;
-      margin-top: 15px;
-      display: none;
-    }
-  </style>
+.container{
+width:90%;
+max-width:900px;
+background:rgba(255,255,255,0.4);
+backdrop-filter:blur(12px);
+border-radius:20px;
+padding:50px;
+box-shadow:0 10px 40px rgba(0,0,0,0.25);
+margin-top:60px;
+display:none;
+animation:fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+font-family:'Playfair Display',serif;
+font-size:40px;
+text-align:center;
+margin-bottom:25px;
+color:#222;
+}
+
+.typing-text{
+font-size:20px;
+line-height:1.7;
+text-align:center;
+color:#444;
+max-width:700px;
+margin:auto;
+}
+
+/* пароль экран */
+
+#password-screen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+z-index:9999;
+text-align:center;
+padding:20px;
+}
+
+#password-screen h2{
+font-family:'Playfair Display',serif;
+font-size:34px;
+margin-bottom:20px;
+}
+
+#password-screen input{
+padding:14px 22px;
+font-size:18px;
+border-radius:10px;
+border:none;
+outline:none;
+text-align:center;
+margin-top:10px;
+}
+
+#password-screen button{
+margin-top:20px;
+padding:12px 25px;
+font-size:18px;
+border-radius:10px;
+border:none;
+cursor:pointer;
+background:#e91e63;
+color:white;
+transition:0.3s;
+}
+
+#password-screen button:hover{
+background:#d81b60;
+}
+
+#error{
+color:#ff5555;
+margin-top:12px;
+display:none;
+}
+
+</style>
 </head>
+
 <body>
 
-  <h1>Введите код 8 марта 💌</h1>
-  <input type="password" id="code-input" placeholder="Введите код">
-  <div>
-    <button onclick="checkCode()">Открыть сейф</button>
-    <button onclick="goBack()">Назад</button>
-  </div>
-  <div id="error">Неверный код, попробуй снова!</div>
+<!-- экран ввода -->
 
-  <script>
-    // Здесь можно задать свой код
-    const secretCode = ""; 
+<div id="password-screen">
 
-    function checkCode() {
-      const input = document.getElementById("code-input").value;
-      if(input === secretCode) {
-        // Можно заменить на открытие квеста/переход на финальный экран
-        alert("Код верный! Открываем следующий шаг квеста 💖");
-        // window.location.href = "следующая_страница.html";
-      } else {
-        document.getElementById("error").style.display = "block";
-      }
-    }
+<h2>Введите секретный код 💌</h2>
 
-    function goBack() {
-      window.history.back(); // вернуться на предыдущую страницу
-      // или на главную: window.location.href = "index.html";
-    }
-  </script>
+<input type="password" id="pass-input" placeholder="Код">
+
+<button onclick="checkPassword()">Открыть</button>
+
+<div id="error">Неверный код</div>
+
+</div>
+
+<!-- основной контент -->
+
+<div class="container">
+
+<h1>У меня есть приглашение для тебя 💖</h1>
+
+<div class="typing-text" id="typing"></div>
+
+</div>
+
+<script>
+
+/* фон */
+
+const images = [
+"images/photo1.jpg",
+"images/photo2.jpg",
+"images/photo3.jpg"
+];
+
+const randomImage = images[Math.floor(Math.random()*images.length)];
+document.body.style.backgroundImage = `url('${randomImage}')`;
+
+
+/* пароль */
+
+const correctPassword = "10042003"; // ← ПОМЕНЯЙ КОД
+
+function checkPassword(){
+
+const input = document.getElementById("pass-input").value;
+
+if(input === correctPassword){
+
+document.getElementById("password-screen").style.display = "none";
+document.querySelector(".container").style.display = "block";
+
+startTyping();
+
+}else{
+
+document.getElementById("error").style.display = "block";
+
+}
+
+}
+
+
+/* печатающийся текст */
+
+const text = `
+СИСТЕМА ОБНАРУЖИЛА ПОДОЗРЕВАЕМУЮ.
+
+После долгого расследования установлено,
+что именно ты являешься преступницей,
+укравшей моё внимание, мысли и сердце.
+
+Доказательства:
+— слишком красивая улыбка
+— подозрительно добрые глаза
+— систематическое появление в моих мыслях
+— и полное похищение моего настроения.
+
+По итогам расследования суд вынес окончательное решение.
+
+ПОСТАНОВЛЕНИЕ:
+
+Подозреваемая признаётся виновной
+по статье "Кража сердца первой степени".
+
+В качестве наказания назначается
+обязательное совместное времяпровождение
+с главным пострадавшим.
+
+Приговор вступает в силу сегодня
+в 17:00.
+
+Место исполнения наказания:
+поход в кино вместе со мной.
+
+Дополнительная информация,
+маршрут следования
+и детали операции
+
+будут переданы лично
+главным пострадавшим.
+
+Обжалованию приговор не подлежит.
+
+Подозреваемая обязана явиться
+с хорошим настроением 💖
+`;
+
+let index = 0;
+
+function startTyping(){
+
+const element = document.getElementById("typing");
+
+function type(){
+
+if(index < text.length){
+
+element.innerHTML += text.charAt(index);
+index++;
+
+setTimeout(type,40);
+
+}
+
+}
+
+type();
+
+}
+
+</script>
 
 </body>
 </html>
